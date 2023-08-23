@@ -6,8 +6,9 @@ def suma(): #No es necesario usar los mismos nombres aqui.
    r=a+b
    print(r)
 
-print('inicio de programa')
+if __name__=="__name__":
+    print('inicio de programa')
 
-suma()
-
-print("fin del programa")
+    suma(10,15)
+  
+    print("fin del programa")
