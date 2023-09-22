@@ -6,25 +6,25 @@ def lectura():
         a=i.rstrip('\n').split(',')
         print(f'{a}=>{int(a[0])+int(a[1])}')
 
-def lectura2():
-     f=open("matrizAsignacion.txt","rt")
-     line=f.readline()
-     while line !="":
-         print(line)
-         opc=input('Presione enter')
-         line=f.readline()
-     f.close()
-     print("Finalizo la lectura")
-def lectura3():
-    f=open("matrizAsignacion.txt","rt")
-    line=f.read()
-    f.close()
-    print(line,len(line))
-    print("-----------")
-    a=line.split('\n')
-    for i in a:
-        b=i.split(',')
-        print(b)
+#def lectura2():
+     #f=open("matrizAsignacion.txt","rt")
+     #line=f.readline()
+     #while line !="":
+         #print(line)
+         #opc=input('Presione enter')
+         #line=f.readline()
+     #f.close()
+     #print("Finalizo la lectura")
+#def lectura3():
+    #f=open("matrizAsignacion.txt","rt")
+    #line=f.read()
+    #f.close()
+    #print(line,len(line))
+    #print("-----------")
+    #a=line.split('\n')
+    #for i in a:
+        #b=i.split(',')
+        #print(b)
 
 
 
@@ -36,6 +36,6 @@ def lectura3():
 
 
 if __name__=="__main__":
-    #lectura()
+    lectura()
     #lectura2()
-    lectura3()
+    #lectura3()
