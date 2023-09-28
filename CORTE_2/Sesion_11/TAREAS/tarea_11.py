@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1GEyOPUuQPBTZG8L_uJp369-5Jb23T0C6
 """
 
-#sin pregunta y solo los nombres ya estipulados
+
 class Imc:
     def __init__(self):
         self.nombre = None
