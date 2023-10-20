@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def lectura():
     f = open("wcm.csv", "r", encoding="utf8")
     line = f.readline()
@@ -71,3 +72,17 @@ if __name__=="__main__":
     lectura()
 
         
+=======
+def lectura():
+    f=open("wcm.csv","r",encoding="utf8")
+    line=f.readline()
+    for  i in line:
+        a=i.rstrip('\n').split(',')
+        while line !="":
+         print(line)
+         opc=input('Presione enter')
+         line=f.readline()
+         print("Finalizo la lectura")
+         f.close()
+    pass
+>>>>>>> ddc7f0a922b72759edae4b347fdeeb7cb9943c83
