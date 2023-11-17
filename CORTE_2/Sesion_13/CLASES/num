@@ -1,0 +1,67 @@
+class ConversorNumerico:
+    def __init__(self, numero):
+        self.numero = numero
+
+    def getNumero(self):
+        return self.numero
+
+
+class Decimal(ConversorNumerico):
+    def decBin(self):
+        return bin(self.numero)[2:]
+
+    def decHex(self):
+        return hex(self.numero)[2:]
+
+
+class Binario(ConversorNumerico):
+    def binDec(self):
+        return int(str(self.numero), 2)
+
+
+class Hexadecimal(ConversorNumerico):
+    def hexDec(self):
+        return int(str(self.numero), 16)
+
+
+def main():
+    while True:
+        print('--------------Sistema de conversion numerico--------------\n'
+              '1. Conversion Decimal a Binario\n'
+              '2. Conversion Decimal a Hexadecimal\n'
+              '3. Conversion Binario a Decimal\n'
+              '4. Conversion Hexadecimal a Decimal\n'
+              '5. Salir\n')
+
+        opcion = input('¿Qué conversión desea realizar? (Ingrese el número de la opción): ')
+
+        if opcion == "1":
+            numero = int(input('Ingrese el número decimal a convertir a binario: '))
+            decimal = Decimal(numero)
+            print(f'El número decimal {decimal.getNumero()} es {decimal.decBin()} en binario\n')
+
+        elif opcion == "2":
+            numero = int(input('Ingrese el número decimal a convertir a hexadecimal: '))
+            decimal = Decimal(numero)
+            print(f'El número decimal {decimal.getNumero()} es {decimal.decHex()} en hexadecimal\n')
+
+        elif opcion == "3":
+            numero = input('Ingrese el número binario a convertir a decimal: ')
+            binario = Binario(numero)
+            print(f'El número binario {binario.getNumero()} es {binario.binDec()} en decimal\n')
+
+        elif opcion == "4":
+            numero = input('Ingrese el número hexadecimal a convertir a decimal: ')
+            hexadecimal = Hexadecimal(numero)
+            print(f'El número hexadecimal {hexadecimal.getNumero()} es {hexadecimal.hexDec()} en decimal\n')
+
+        elif opcion == "5":
+            print('Saliendo del programa...')
+            break
+
+        else:
+            print('Opción inválida. Por favor, elija una opción válida del menú.\n')
+
+
+if __name__ == "__main__":
+    main()
