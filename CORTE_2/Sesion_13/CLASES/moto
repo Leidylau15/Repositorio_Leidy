@@ -1,0 +1,115 @@
+class Vehiculo:
+    def __init__(self, marca, modelo, color):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+
+    def obtenerInformacion(self):
+        return f"Marca: {self.marca}, Modelo: {self.modelo}, Color: {self.color}"
+
+
+class Coche(Vehiculo):
+    def __init__(self, marca, modelo, color, num_puertas):
+        super().__init__(marca, modelo, color)
+        self.num_puertas = num_puertas
+
+    def obtenerInformacion(self):
+        info_padre = super().obtenerInformacion()
+        return f"{info_padre}, Puertas: {self.num_puertas}"
+
+
+class Moto(Vehiculo):
+    def __init__(self, marca, modelo, color, cilindrada):
+        super().__init__(marca, modelo, color)
+        self.cilindrada = cilindrada
+
+    def obtenerInformacion(self):
+        info_padre = super().obtenerInformacion()
+        return f"{info_padre}, Cilindrada: {self.cilindrada}cc"
+
+
+class Camion(Vehiculo):
+    def __init__(self, marca, modelo, color, carga_maxima):
+        super().__init__(marca, modelo, color)
+        self.carga_maxima = carga_maxima
+
+    def obtenerInformacion(self):
+        info_padre = super().obtenerInformacion()
+        return f"{info_padre}, Carga Máxima: {self.carga_maxima} toneladas"
+
+
+class Bicicleta(Vehiculo):
+    def __init__(self, marca, modelo, color, tipo):
+        super().__init__(marca, modelo, color)
+        self.tipo = tipo
+
+    def obtenerInformacion(self):
+        info_padre = super().obtenerInformacion()
+        return f"{info_padre}, Tipo: {self.tipo}"
+
+
+def main():
+    vehiculos = []
+
+    while True:
+        print("\n------ Registro de Vehículos ------")
+        print("1. Registrar Coche")
+        print("2. Registrar Moto")
+        print("3. Registrar Camión")
+        print("4. Registrar Bicicleta")
+        print("5. Mostrar todos los vehículos")
+        print("6. Salir")
+
+        opcion = input("Ingrese la opción deseada: ")
+
+        if opcion == "1":
+            marca = input("Ingrese la marca del coche: ")
+            modelo = input("Ingrese el modelo del coche: ")
+            color = input("Ingrese el color del coche: ")
+            puertas = input("Ingrese el número de puertas del coche: ")
+            coche = Coche(marca, modelo, color, puertas)
+            vehiculos.append(coche)
+            print("Coche registrado exitosamente.")
+
+        elif opcion == "2":
+            marca = input("Ingrese la marca de la moto: ")
+            modelo = input("Ingrese el modelo de la moto: ")
+            color = input("Ingrese el color de la moto: ")
+            cilindrada = input("Ingrese la cilindrada de la moto (en cc): ")
+            moto = Moto(marca, modelo, color, cilindrada)
+            vehiculos.append(moto)
+            print("Moto registrada exitosamente.")
+
+        elif opcion == "3":
+            marca = input("Ingrese la marca del camión: ")
+            modelo = input("Ingrese el modelo del camión: ")
+            color = input("Ingrese el color del camión: ")
+            carga_maxima = input("Ingrese la carga máxima del camión (en toneladas): ")
+            camion = Camion(marca, modelo, color, carga_maxima)
+            vehiculos.append(camion)
+            print("Camión registrado exitosamente.")
+
+        elif opcion == "4":
+            marca = input("Ingrese la marca de la bicicleta: ")
+            modelo = input("Ingrese el modelo de la bicicleta: ")
+            color = input("Ingrese el color de la bicicleta: ")
+            tipo = input("Ingrese el tipo de bicicleta: ")
+            bicicleta = Bicicleta(marca, modelo, color, tipo)
+            vehiculos.append(bicicleta)
+            print("Bicicleta registrada exitosamente.")
+
+        elif opcion == "5":
+            print("\n------ Listado de Vehículos Registrados ------")
+            for vehiculo in vehiculos:
+                print(vehiculo.obtenerInformacion())
+
+        elif opcion == "6":
+            print("Saliendo del programa...")
+            break
+
+        else:
+            print("Opción no válida. Por favor, ingrese una opción válida.")
+
+
+if __name__ == "__main__":
+    main()
