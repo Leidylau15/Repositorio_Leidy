@@ -1,0 +1,89 @@
+class Vehiculo:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def obtener_info(self):
+        return f"Marca: {self.marca}, Modelo: {self.modelo}"
+
+
+class Carro(Vehiculo):
+    def __init__(self, marca, modelo, puertas):
+        super().__init__(marca, modelo)
+        self.puertas = puertas
+
+    def obtener_info(self):
+        info_padre = super().obtener_info()
+        return f"Tipo: Carro, {info_padre}, Puertas: {self.puertas}"
+
+
+class Moto(Vehiculo):
+    def __init__(self, marca, modelo, cilindrada):
+        super().__init__(marca, modelo)
+        self.cilindrada = cilindrada
+
+    def obtener_info(self):
+        info_padre = super().obtener_info()
+        return f"Tipo: Moto, {info_padre}, Cilindrada: {self.cilindrada}cc"
+
+
+class Bicicleta(Vehiculo):
+    def __init__(self, marca, modelo, tipo):
+        super().__init__(marca, modelo)
+        self.tipo = tipo
+
+    def obtener_info(self):
+        info_padre = super().obtener_info()
+        return f"Tipo: Bicicleta, {info_padre}, Tipo: {self.tipo}"
+
+
+class Camion(Vehiculo):
+    def __init__(self, marca, modelo, capacidad_carga):
+        super().__init__(marca, modelo)
+        self.capacidad_carga = capacidad_carga
+
+    def obtener_info(self):
+        info_padre = super().obtener_info()
+        return f"Tipo: Camión, {info_padre}, Capacidad de carga: {self.capacidad_carga} toneladas"
+
+
+def main():
+    vehiculos = []
+
+    while True:
+        print("\nIngrese la información de un vehículo:")
+        tipo_vehiculo = input("Tipo de vehículo (carro, moto, bicicleta, camion): ").lower()
+
+        if tipo_vehiculo not in ['carro', 'moto', 'bicicleta', 'camion']:
+            print("Tipo de vehículo no válido. Intente nuevamente.")
+            continue
+
+        marca = input("Ingrese la marca: ")
+        modelo = input("Ingrese el modelo: ")
+
+        if tipo_vehiculo == 'carro':
+            puertas = input("Ingrese la cantidad de puertas: ")
+            vehiculo = Carro(marca, modelo, puertas)
+        elif tipo_vehiculo == 'moto':
+            cilindrada = input("Ingrese la cilindrada en cc: ")
+            vehiculo = Moto(marca, modelo, cilindrada)
+        elif tipo_vehiculo == 'bicicleta':
+            tipo = input("Ingrese el tipo de bicicleta: ")
+            vehiculo = Bicicleta(marca, modelo, tipo)
+        else:
+            capacidad_carga = input("Ingrese la capacidad de carga en toneladas: ")
+            vehiculo = Camion(marca, modelo, capacidad_carga)
+
+        vehiculos.append(vehiculo)
+
+        continuar = input("¿Desea ingresar otro vehículo? (S/N): ")
+        if continuar.upper() != 'S':
+            break
+
+    print("\nInformación de los vehículos ingresados:")
+    for vehiculo in vehiculos:
+        print(vehiculo.obtener_info())
+
+
+if __name__ == "__main__":
+    main()
