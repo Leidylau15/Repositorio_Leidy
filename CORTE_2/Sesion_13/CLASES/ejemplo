@@ -1,0 +1,89 @@
+class CalculadoraBase:
+    def operacion(self, x, y):
+        pass
+
+class Sumadora(CalculadoraBase):
+    def operacion(self, x, y):
+        return x + y
+
+class Restadora(CalculadoraBase):
+    def operacion(self, x, y):
+        return x - y
+
+class Multiplicadora(CalculadoraBase):
+    def operacion(self, x, y):
+        return x * y
+
+class Divisora(CalculadoraBase):
+    def operacion(self, x, y):
+        if y != 0:
+            return x / y
+        else:
+            return "No es posible dividir por cero"
+
+class Modulo(CalculadoraBase):
+    def operacion(self, x, y):
+        if y != 0:
+            return x % y
+        else:
+            return "No es posible calcular el módulo por cero"
+
+class Porcentaje(CalculadoraBase):
+    def operacion(self, x, y):
+        return (x * y) / 100
+
+# Función para mostrar las opciones de operaciones disponibles
+def mostrar_operaciones():
+    print("1. Sumar")
+    print("2. Restar")
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("5. Calcular Módulo")
+    print("6. Calcular Porcentaje")
+    print("7. Salir")
+
+# Función principal
+def main():
+    # Crear instancias de las clases
+    sumadora = Sumadora()
+    restadora = Restadora()
+    multiplicadora = Multiplicadora()
+    divisora = Divisora()
+    modulo = Modulo()
+    porcentaje = Porcentaje()
+
+    while True:
+        mostrar_operaciones()
+        opcion = input("Seleccione una operación (1-7): ")
+
+        if opcion == '7':
+            print("Saliendo de la calculadora. ¡Hasta luego!")
+            break
+
+        try:
+            num1 = float(input("Ingrese el primer número: "))
+            num2 = float(input("Ingrese el segundo número: "))
+        except ValueError:
+            print("Error: Ingrese números válidos.")
+            continue
+
+        if opcion == '1':
+            resultado = sumadora.operacion(num1, num2)
+        elif opcion == '2':
+            resultado = restadora.operacion(num1, num2)
+        elif opcion == '3':
+            resultado = multiplicadora.operacion(num1, num2)
+        elif opcion == '4':
+            resultado = divisora.operacion(num1, num2)
+        elif opcion == '5':
+            resultado = modulo.operacion(num1, num2)
+        elif opcion == '6':
+            resultado = porcentaje.operacion(num1, num2)
+        else:
+            print("Opción no válida. Intente de nuevo.")
+            continue
+
+        print(f"Resultado: {resultado}\n")
+
+if __name__ == "__main__":
+    main()
